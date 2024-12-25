@@ -12,6 +12,18 @@ const displayPhones = phones => {
 
     phoneContainer.textContent = '';
 
+    //display show all button if there are more than 20 phones
+    const showAllContainer = document.getElementById('show-all-container')
+    if(phones.length > 20){
+        showAllContainer.classList.remove('hidden')
+    }
+    else{
+        showAllContainer.classList.add('hidden')
+    }
+
+    //display only 20 phones
+    phones = phones.slice(0, 20);
+
     phones.forEach(phone => {
         // 2. Create a div for each phone card
         const phoneCard = document.createElement('div');
